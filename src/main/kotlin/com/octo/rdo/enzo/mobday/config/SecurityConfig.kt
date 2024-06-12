@@ -1,4 +1,4 @@
-package com.octo.rdo.enzo.mobday
+package com.octo.rdo.enzo.mobday.config
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -7,30 +7,31 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.oauth2.jwt.JwtDecoder
 import org.springframework.security.oauth2.jwt.JwtDecoders
 import org.springframework.security.web.SecurityFilterChain
+import org.springframework.security.config.annotation.web.invoke
 
 
-@Configuration
-@EnableWebSecurity(debug = true)
-class SecurityConfiguration {
-    @Bean
+//@Configuration
+//@EnableWebSecurity
+//class SecurityConfiguration
+
+    /*@Bean
     @Throws(Exception::class)
     fun configure(http: HttpSecurity): SecurityFilterChain {
-        //http.oauth2Client {
-        //    it.clientRegistrationRepository(InMemoryClientRegistrationRepository(keycloakClient()))
-        //}
-        http
-            .authorizeHttpRequests {
-                it.requestMatchers("/authenticated/*").authenticated()
-                it.requestMatchers("/listeDesGens").permitAll()
+        http {
+            authorizeHttpRequests {
+                authorize("/authenticated/*", authenticated)
+                authorize("/listeDeGens", permitAll)
             }
-        http.oauth2ResourceServer { it.jwt {  } }
+            csrf { disable() }
+            oauth2ResourceServer { jwt {  } }
+        }
         return http.build()
     }
 
     @Bean
     fun jwtDecoder(): JwtDecoder {
         return JwtDecoders.fromIssuerLocation("http://localhost:8080/realms/MobDay")
-    }
+    }*/
 }
 
 
@@ -136,3 +137,4 @@ internal class SecurityConfig(keycloakLogoutHandler: KeycloakLogoutHandler) {
         private const val ROLES_CLAIM = "roles"
     }
 }*/
+*/
