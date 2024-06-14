@@ -38,3 +38,6 @@ out/
 
 ### Kotlin ###
 .kotlin
+
+### FCM ###
+mobday_server_fcm.json

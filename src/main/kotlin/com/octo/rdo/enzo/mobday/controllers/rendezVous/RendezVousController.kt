@@ -3,7 +3,7 @@ package com.octo.rdo.enzo.mobday.controllers.rendezVous
 import com.octo.rdo.enzo.mobday.domain.DureeEnum
 import com.octo.rdo.enzo.mobday.domain.RendezVous
 import com.octo.rdo.enzo.mobday.usecase.AjoutRendezVousUseCase
-import com.octo.rdo.enzo.mobday.usecase.RecupererListeRendezVousUseCase
+import com.octo.rdo.enzo.mobday.usecase.GetListeRendezVousUseCase
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestBody
@@ -16,16 +16,16 @@ import java.time.LocalDate
 @Suppress("unused")
 class RendezVousController(
     private val ajoutRendezVousUseCase: AjoutRendezVousUseCase,
-    private val recupererListeRendezVousUseCase: RecupererListeRendezVousUseCase,
+    private val getListeRendezVousUseCase: GetListeRendezVousUseCase,
 ) {
     @RequestMapping("/rendezVous", method = [RequestMethod.POST])
     fun addRdv(@RequestBody rendezVousRequest: RendezVousRequestJson) {
-        ajoutRendezVousUseCase.addRdv(rendezVousRequest.toRendezVous())
+        ajoutRendezVousUseCase.execute(rendezVousRequest.toRendezVous())
     }
 
     @RequestMapping("/rendezVous/{userId}", method = [RequestMethod.GET])
     fun getRdv(@PathVariable userId: String): ResponseEntity<*> {
-        recupererListeRendezVousUseCase.recupererListeRendezVous(userId)
+        getListeRendezVousUseCase.execute(userId)
             .let { return ResponseEntity.ok(it) }
     }
 }

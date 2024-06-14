@@ -7,11 +7,7 @@ import org.springframework.stereotype.Component
 @Component
 @Suppress("unused")
 class AjoutRendezVousUseCase(private val repository: RendezVousRepository) {
-    fun addRdv(rendezVous: RendezVous): Boolean {
+    fun execute(rendezVous: RendezVous): Boolean {
         return repository.addRdv(rendezVous)
-    }
-
-    fun getRdv(userId: String): List<RendezVous> {
-        return repository.getRdv(userId)
     }
 }
