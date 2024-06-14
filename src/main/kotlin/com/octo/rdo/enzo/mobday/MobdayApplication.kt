@@ -27,9 +27,13 @@ class MobdayApplication {
             authorizeHttpRequests {
                 authorize("/authenticated/*", authenticated)
                 authorize("/listeDesGens", permitAll)
+                authorize("/rendezVous", permitAll)
+                authorize("/rendezVous/*", permitAll)
+                authorize("/message", permitAll)
+                authorize("/conversation/*/*", permitAll)
             }
             csrf { disable() }
-            oauth2ResourceServer { jwt {  } }
+            oauth2ResourceServer { jwt { } }
         }
         return http.build()
     }
