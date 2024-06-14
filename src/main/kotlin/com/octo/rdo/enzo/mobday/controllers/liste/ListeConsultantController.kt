@@ -1,15 +1,15 @@
-package com.octo.rdo.enzo.mobday.controllers
+package com.octo.rdo.enzo.mobday.controllers.liste
 
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class ListGensController {
-
+@Suppress("unused")
+class ListeConsultantController {
     @RequestMapping("/listeDesGens", method = [RequestMethod.GET])
-    fun listeDesGens(): List<ConsultantQuiDechire> = listOf(
-        ConsultantQuiDechire(
+    fun listeDesGens(): List<Consultant> = listOf(
+        Consultant(
             id = "1",
             competences = listOf(),
             nom = "AKAR",
@@ -19,7 +19,7 @@ class ListGensController {
             niveau = "Senior Partner",
             tjm = 3000,
         ),
-        ConsultantQuiDechire(
+        Consultant(
             id = "2",
             competences = listOf(),
             nom = "CHABIN",
@@ -29,7 +29,7 @@ class ListGensController {
             tjm = 2000,
             niveau = "Senior Expert Manager"
         ),
-        ConsultantQuiDechire(
+        Consultant(
             id = "3",
             competences = listOf<String>(),
             nom = "CENS",
@@ -39,7 +39,7 @@ class ListGensController {
             tjm = 2000,
             niveau = "Senior Expert Manager"
         ),
-        ConsultantQuiDechire(
+        Consultant(
             id = "4",
             competences = listOf<String>(),
             nom = "VINCENT",
@@ -49,7 +49,7 @@ class ListGensController {
             tjm = 2000,
             niveau = "Senior Expert Manager"
         ),
-        ConsultantQuiDechire(
+        Consultant(
             id = "5",
             competences = listOf<String>(),
             nom = "SUN",
@@ -59,7 +59,7 @@ class ListGensController {
             tjm = 2000,
             niveau = "Senior Expert Manager"
         ),
-        ConsultantQuiDechire(
+        Consultant(
             id = "6",
             competences = listOf<String>(),
             nom = "SABATIE",
@@ -69,7 +69,7 @@ class ListGensController {
             tjm = 2000,
             niveau = "Senior Expert Manager"
         ),
-        ConsultantQuiDechire(
+        Consultant(
             id = "7",
             competences = listOf<String>(),
             nom = "ROGIER",
@@ -79,7 +79,7 @@ class ListGensController {
             tjm = 2000,
             niveau = "Senior Expert Manager"
         ),
-        ConsultantQuiDechire(
+        Consultant(
             id = "8",
             competences = listOf<String>(),
             nom = "PATEL",
@@ -89,7 +89,7 @@ class ListGensController {
             tjm = 2500,
             niveau = "Junior Partner"
         ),
-        ConsultantQuiDechire(
+        Consultant(
             id = "9",
             competences = listOf<String>(),
             nom = "MEYER",
@@ -99,7 +99,7 @@ class ListGensController {
             tjm = 2500,
             niveau = "Junior Partner"
         ),
-        ConsultantQuiDechire(
+        Consultant(
             id = "10",
             competences = listOf<String>(),
             nom = "MELIKIAN",
@@ -109,7 +109,7 @@ class ListGensController {
             tjm = 800,
             niveau = "Junior nooby"
         ),
-        ConsultantQuiDechire(
+        Consultant(
             id = "11",
             competences = listOf<String>(),
             nom = "FOREST",
@@ -119,7 +119,7 @@ class ListGensController {
             tjm = 800,
             niveau = "Junior nooby"
         ),
-        ConsultantQuiDechire(
+        Consultant(
             id = "12",
             competences = listOf<String>(),
             nom = "CHAPUY",
@@ -129,7 +129,7 @@ class ListGensController {
             tjm = 500,
             niveau = "Développeur Apprenti"
         ),
-        ConsultantQuiDechire(
+        Consultant(
             id = "13",
             competences = listOf<String>(),
             nom = "GERMAIN",
@@ -139,7 +139,7 @@ class ListGensController {
             tjm = 2000,
             niveau = "Senior Expert Manager"
         ),
-        ConsultantQuiDechire(
+        Consultant(
             id = "14",
             competences = listOf<String>(),
             nom = "CALVINO",
@@ -149,7 +149,7 @@ class ListGensController {
             tjm = 2000,
             niveau = "Senior Expert Manager"
         ),
-        ConsultantQuiDechire(
+        Consultant(
             id = "15",
             competences = listOf<String>(),
             nom = "FONTAINE",
@@ -159,7 +159,7 @@ class ListGensController {
             tjm = 2000,
             niveau = "Senior Expert Manager"
         ),
-        ConsultantQuiDechire(
+        Consultant(
             id = "16",
             competences = listOf<String>(),
             nom = "HERRADOR",
@@ -169,7 +169,7 @@ class ListGensController {
             tjm = 800,
             niveau = "Junior nooby"
         ),
-        ConsultantQuiDechire(
+        Consultant(
             id = "17",
             competences = listOf<String>(),
             nom = "YE",
@@ -179,7 +179,7 @@ class ListGensController {
             tjm = 2000,
             niveau = "Senior Expert Manager"
         ),
-        ConsultantQuiDechire(
+        Consultant(
             id = "18",
             competences = listOf<String>(),
             nom = "TOP",
@@ -189,7 +189,7 @@ class ListGensController {
             tjm = 800,
             niveau = "Junior nooby"
         ),
-        ConsultantQuiDechire(
+        Consultant(
             id = "19",
             competences = listOf<String>(),
             nom = "SALA",
@@ -199,7 +199,7 @@ class ListGensController {
             tjm = 800,
             niveau = "Junior nooby"
         ),
-        ConsultantQuiDechire(
+        Consultant(
             id = "20",
             competences = listOf<String>(),
             nom = "LEBERT",
@@ -209,7 +209,7 @@ class ListGensController {
             tjm = 800,
             niveau = "Junior nooby"
         ),
-        ConsultantQuiDechire(
+        Consultant(
             id = "21",
             competences = listOf<String>(),
             nom = "DORMOY",
@@ -219,7 +219,7 @@ class ListGensController {
             tjm = 800,
             niveau = "Junior nooby"
         ),
-        ConsultantQuiDechire(
+        Consultant(
             id = "22",
             competences = listOf<String>(),
             nom = "VALLÉE",
@@ -229,7 +229,7 @@ class ListGensController {
             tjm = 500,
             niveau = "Développeur Apprenti"
         ),
-        ConsultantQuiDechire(
+        Consultant(
             id = "23",
             competences = listOf<String>(),
             nom = "LAURENT",
@@ -239,7 +239,7 @@ class ListGensController {
             tjm = 0,
             niveau = "Stagiaire"
         ),
-        ConsultantQuiDechire(
+        Consultant(
             id = "24",
             competences = listOf<String>(),
             nom = "ADGEG",
@@ -249,7 +249,7 @@ class ListGensController {
             tjm = 200,
             niveau = "Alternant"
         ),
-        ConsultantQuiDechire(
+        Consultant(
             id = "25",
             competences = listOf<String>(),
             nom = "DEGAND",
@@ -259,7 +259,7 @@ class ListGensController {
             tjm = 500,
             niveau = "Développeur Apprenti"
         ),
-        ConsultantQuiDechire(
+        Consultant(
             id = "26",
             competences = listOf<String>(),
             nom = "MILLARD",
@@ -270,10 +270,9 @@ class ListGensController {
             niveau = "Alternant"
         )
     )
-
 }
 
-data class ConsultantQuiDechire(
+data class Consultant(
     val id: String,
     val nom: String,
     val prenom: String,
