@@ -31,6 +31,7 @@ class MobdayApplication {
                 authorize("/rendezVous/*", permitAll)
                 authorize("/message", permitAll)
                 authorize("/conversation/*/*", permitAll)
+                authorize("/saveFcmToken", permitAll)
             }
             csrf { disable() }
             oauth2ResourceServer { jwt { } }
@@ -45,5 +46,6 @@ class MobdayApplication {
 }
 
 fun main(args: Array<String>) {
+    FirebaseWrapper.initFirebase()
     runApplication<MobdayApplication>(*args)
 }

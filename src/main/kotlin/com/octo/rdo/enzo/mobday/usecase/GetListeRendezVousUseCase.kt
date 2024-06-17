@@ -6,6 +6,6 @@ import org.springframework.stereotype.Component
 
 @Component
 @Suppress("unused")
-class RecupererListeRendezVousUseCase(private val repository: RendezVousRepository) {
-    fun recupererListeRendezVous(userId: String): List<RendezVous> = repository.getRdv(userId)
+class GetListeRendezVousUseCase(private val repository: RendezVousRepository) {
+    fun execute(userId: String): List<RendezVous> = repository.getRdv(userId)
 }

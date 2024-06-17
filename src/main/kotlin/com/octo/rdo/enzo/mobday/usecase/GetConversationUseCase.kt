@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component
 
 @Component
 @Suppress("unused")
-class RecupererConversationUseCase(private val chatRepository: ChatRepository) {
-    fun recupererConversation(userId: String, consultantId: String): Conversation {
+class GetConversationUseCase(private val chatRepository: ChatRepository) {
+    fun execute(userId: String, consultantId: String): Conversation {
         return chatRepository.getConversation(userId, consultantId)
     }
 }

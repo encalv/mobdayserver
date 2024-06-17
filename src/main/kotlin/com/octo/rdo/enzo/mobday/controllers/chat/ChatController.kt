@@ -1,7 +1,7 @@
 package com.octo.rdo.enzo.mobday.controllers.chat
 
 import com.octo.rdo.enzo.mobday.domain.Message
-import com.octo.rdo.enzo.mobday.usecase.RecupererConversationUseCase
+import com.octo.rdo.enzo.mobday.usecase.GetConversationUseCase
 import com.octo.rdo.enzo.mobday.usecase.SendMessageUseCase
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PathVariable
@@ -15,16 +15,16 @@ import java.time.LocalDate
 @Suppress("unused")
 class ChatController(
     private val sendMessageUseCase: SendMessageUseCase,
-    private val recupererConversationUseCase: RecupererConversationUseCase
+    private val getConversationUseCase: GetConversationUseCase
 ) {
     @RequestMapping("/message", method = [RequestMethod.POST])
     fun sendMessage(@RequestBody messageRequest: MessageRequestJson) {
-        sendMessageUseCase.sendMessage(messageRequest.toMessage())
+        sendMessageUseCase.execute(messageRequest.toMessage())
     }
 
     @RequestMapping("/conversation/{userId}/{consultantId}", method = [RequestMethod.GET])
     fun getConversation(@PathVariable userId: String, @PathVariable consultantId: String): ResponseEntity<*> {
-        recupererConversationUseCase.recupererConversation(userId, consultantId)
+        getConversationUseCase.execute(userId, consultantId)
             .let { return ResponseEntity.ok(it) }
     }
 }
