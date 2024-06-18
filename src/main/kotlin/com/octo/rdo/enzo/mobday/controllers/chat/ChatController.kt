@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RestController
-import java.time.LocalDate
+import java.time.LocalDateTime
 
 @RestController
 @Suppress("unused")
@@ -34,6 +34,6 @@ private fun MessageRequestJson.toMessage(): Message {
         senderId = this.senderId,
         receiverId = this.receiverId,
         content = this.content,
-        date = LocalDate.now()
+        date = LocalDateTime.now()
     )
 }
