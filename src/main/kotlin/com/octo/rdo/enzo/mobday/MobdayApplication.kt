@@ -9,6 +9,8 @@ import org.springframework.security.oauth2.jwt.JwtDecoder
 import org.springframework.security.oauth2.jwt.JwtDecoders
 import org.springframework.security.web.SecurityFilterChain
 import org.springframework.web.client.RestTemplate
+import org.springframework.web.servlet.config.annotation.CorsRegistry
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 
 
 @SpringBootApplication(scanBasePackages = ["com.octo.rdo.enzo.mobday"])
@@ -18,6 +20,15 @@ class MobdayApplication {
     @Throws(Exception::class)
     fun restTemplate(): RestTemplate {
         return RestTemplate()
+    }
+
+    @Bean
+    fun corsConfiguration(): WebMvcConfigurer {
+        return object : WebMvcConfigurer {
+            override fun addCorsMappings(registry: CorsRegistry) {
+                registry.addMapping("/**").allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS").allowedOrigins("*")
+            }
+        }
     }
 
     @Bean
