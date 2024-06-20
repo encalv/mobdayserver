@@ -30,4 +30,8 @@ class ChatInMemoryRepository : ChatRepository {
             mutableListOf()
         )
     }
+
+    override fun getConversations(): List<Conversation> {
+        return conversations
+    }
 }

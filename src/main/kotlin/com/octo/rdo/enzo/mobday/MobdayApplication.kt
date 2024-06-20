@@ -32,6 +32,7 @@ class MobdayApplication {
                 authorize("/message", permitAll)
                 authorize("/conversation/*/*", permitAll)
                 authorize("/saveFcmToken", permitAll)
+                authorize("/conversations", permitAll)
             }
             csrf { disable() }
             oauth2ResourceServer { jwt { } }

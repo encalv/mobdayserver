@@ -1,6 +1,7 @@
 package com.octo.rdo.enzo.mobday.controllers.chat
 
 import com.octo.rdo.enzo.mobday.domain.Message
+import com.octo.rdo.enzo.mobday.usecase.GetAllConversationsUseCase
 import com.octo.rdo.enzo.mobday.usecase.GetConversationUseCase
 import com.octo.rdo.enzo.mobday.usecase.SendMessageUseCase
 import org.springframework.http.ResponseEntity
@@ -15,7 +16,8 @@ import java.time.LocalDateTime
 @Suppress("unused")
 class ChatController(
     private val sendMessageUseCase: SendMessageUseCase,
-    private val getConversationUseCase: GetConversationUseCase
+    private val getConversationUseCase: GetConversationUseCase,
+    private val getAllConversationsUseCase: GetAllConversationsUseCase
 ) {
     @RequestMapping("/message", method = [RequestMethod.POST])
     fun sendMessage(@RequestBody messageRequest: MessageRequestJson) {
@@ -27,13 +29,19 @@ class ChatController(
         getConversationUseCase.execute(userId, consultantId)
             .let { return ResponseEntity.ok(it) }
     }
-}
 
-private fun MessageRequestJson.toMessage(): Message {
-    return Message(
-        senderId = this.senderId,
-        receiverId = this.receiverId,
-        content = this.content,
-        date = LocalDateTime.now()
-    )
+    @RequestMapping("/conversations", method = [RequestMethod.GET])
+    fun getConversation(): ResponseEntity<*> {
+        getAllConversationsUseCase.getConversations()
+            .let { return ResponseEntity.ok(it) }
+    }
+
+    private fun MessageRequestJson.toMessage(): Message {
+        return Message(
+            senderId = this.senderId,
+            receiverId = this.receiverId,
+            content = this.content,
+            date = LocalDateTime.now()
+        )
+    }
 }

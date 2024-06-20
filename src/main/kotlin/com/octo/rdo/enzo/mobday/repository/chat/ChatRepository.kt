@@ -6,4 +6,5 @@ import com.octo.rdo.enzo.mobday.domain.Message
 interface ChatRepository {
     fun sendMessage(message: Message): Boolean
     fun getConversation(userId: String, consultantId: String): Conversation
+    fun getConversations(): List<Conversation>
 }
