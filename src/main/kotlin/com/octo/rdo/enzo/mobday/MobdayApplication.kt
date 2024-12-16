@@ -58,6 +58,6 @@ class MobdayApplication {
 }
 
 fun main(args: Array<String>) {
-    FirebaseWrapper.initFirebase()
+//    FirebaseWrapper.initFirebase()
     runApplication<MobdayApplication>(*args)
 }
